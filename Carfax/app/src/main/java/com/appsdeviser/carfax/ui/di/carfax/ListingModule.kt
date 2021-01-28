@@ -12,7 +12,7 @@ class ListingModule {
     @ListingScope
     @Provides
     fun provideListingViewModelFactory(
-       getCarFaxDataUseCase: GetCarFaxDataUseCase
+        getCarFaxDataUseCase: GetCarFaxDataUseCase
     ): ListingViewModelFactory {
         return ListingViewModelFactory(getCarFaxDataUseCase)
     }

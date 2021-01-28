@@ -1,7 +1,10 @@
 package com.appsdeviser.carfax.data.model
 
-data class Listings(
-    val accidentHistory: AccidentHistory,
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+class Listings(
     val advantage: Boolean,
     val backfill: Boolean,
     val badge: String,
@@ -9,7 +12,7 @@ data class Listings(
     val bodytype: String,
     val cabType: String,
     val certified: Boolean,
-    val currentPrice: Int,
+    val currentPrice: Double,
     val dealer: Dealer,
     val dealerType: String,
     val displacement: String,
@@ -27,25 +30,21 @@ data class Listings(
     val images: Images,
     val interiorColor: String,
     val isEnriched: Boolean,
-    val listPrice: Int,
-    val listingStatus: String,
+    val listPrice: Double,
     val make: String,
     val mileage: Int,
     val model: String,
     val monthlyPaymentEstimate: MonthlyPaymentEstimate,
     val mpgCity: Int,
     val mpgHighway: Int,
-    val newTopOptions: List<String>,
     val noAccidents: Boolean,
     val oneOwner: Boolean,
-    val onePrice: Int,
-    val onePriceArrows: List<OnePriceArrow>,
+    val onePrice: Double,
     val onlineOnly: Boolean,
-    val ownerHistory: OwnerHistory,
     val personalUse: Boolean,
     val recordType: String,
     val sentLead: Boolean,
-    val serviceHistory: ServiceHistory,
+    val sentLeadAt: Boolean,
     val serviceRecords: Boolean,
     val sortScore: Double,
     val stockNumber: String,
@@ -55,7 +54,6 @@ data class Listings(
     val trim: String,
     val vdpUrl: String,
     val vehicleCondition: String,
-    val vehicleUseHistory: VehicleUseHistory,
     val vin: String,
     val year: Int
-)
+) : Parcelable

@@ -21,7 +21,6 @@ class App : Application(), Injector {
             .build()
     }
 
-
     override fun createListingSubComponent(): ListingSubComponent {
         return appComponent.carFaxSubComponent().create()
     }

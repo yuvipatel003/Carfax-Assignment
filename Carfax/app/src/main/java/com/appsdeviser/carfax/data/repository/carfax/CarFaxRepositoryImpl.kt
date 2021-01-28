@@ -1,15 +1,15 @@
 package com.appsdeviser.carfax.data.repository.carfax
 
 import android.util.Log
+import com.appsdeviser.carfax.data.model.CarFaxData
 import com.appsdeviser.carfax.data.repository.carfax.datasource.CarFaxCacheDataSource
 import com.appsdeviser.carfax.data.repository.carfax.datasource.CarFaxRemoteDataSource
-import com.appsdeviser.carfax.data.xxx.CarFaxData
 import com.appsdeviser.carfax.domain.repository.CarFaxRepository
 
 class CarFaxRepositoryImpl(
     private val carFaxRemoteDataSource: CarFaxRemoteDataSource,
     private val carFaxCacheDataSource: CarFaxCacheDataSource
-) : CarFaxRepository{
+) : CarFaxRepository {
     // TODO : Complete this class
 
     private val mTAG = CarFaxRepositoryImpl::class.java.simpleName
@@ -19,7 +19,7 @@ class CarFaxRepositoryImpl(
     }
 
     private suspend fun getCarFaxDataFromCache(): CarFaxData? {
-        var mCarFaxData : CarFaxData? = null
+        var mCarFaxData: CarFaxData? = null
 
         try {
             mCarFaxData = carFaxCacheDataSource.getCarFaxDataFromCache()
@@ -36,8 +36,32 @@ class CarFaxRepositoryImpl(
         return mCarFaxData
     }
 
+    // For Local Database
+//    //   private val carFaxLocalDataSource: CarFaxLocalDataSource,
+//    private suspend fun getCarFaxDataFromDB() : CarFaxData?{
+//        //
+//
+//
+//        var mCarFaxData: CarFaxData? = null
+//
+//        try {
+//            mCarFaxData = carFaxLocalDataSource.getCarFaxDataFromDB()
+//        }catch (e: java.lang.Exception){
+//            Log.d(mTAG, "Exception : $e")
+//        }
+//
+//        if(mCarFaxData != null){
+//            return mCarFaxData
+//        } else {
+//            mCarFaxData = getCarFaxDataFromAPI()
+//            carFaxLocalDataSource.saveCarFaxDataToDB(mCarFaxData!!)
+//        }
+//        return mCarFaxData
+//    }
+
+
     private suspend fun getCarFaxDataFromAPI(): CarFaxData? {
-        var mCarFaxData : CarFaxData? = null
+        var mCarFaxData: CarFaxData? = null
 
         try {
             val response = carFaxRemoteDataSource.getCarFaxData()

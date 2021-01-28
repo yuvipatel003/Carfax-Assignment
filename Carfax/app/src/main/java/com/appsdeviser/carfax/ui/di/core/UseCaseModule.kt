@@ -8,7 +8,7 @@ import dagger.Provides
 @Module
 class UseCaseModule {
     @Provides
-    fun provideGetCarFaxDataUseCase(carFaxRepository : CarFaxRepository): GetCarFaxDataUseCase {
+    fun provideGetCarFaxDataUseCase(carFaxRepository: CarFaxRepository): GetCarFaxDataUseCase {
         return GetCarFaxDataUseCase(carFaxRepository)
     }
 }

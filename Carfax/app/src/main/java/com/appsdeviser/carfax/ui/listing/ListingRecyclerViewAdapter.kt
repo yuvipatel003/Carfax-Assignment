@@ -6,13 +6,16 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.appsdeviser.carfax.R
-import com.appsdeviser.carfax.data.xxx.Listings
+import com.appsdeviser.carfax.data.model.Listings
 import com.appsdeviser.carfax.databinding.ListListingItemBinding
 import com.appsdeviser.carfax.utils.Utilities
 import com.appsdeviser.carfax.utils.Utilities.Companion.currencyFormat
 import com.bumptech.glide.Glide
 
-class ListingRecyclerViewAdapter : RecyclerView.Adapter<ListingItemViewHolder>() {
+class ListingRecyclerViewAdapter(
+    private val selectedListListener: (Listings) -> Unit,
+    private val callDealerListener: (String) -> Unit
+) : RecyclerView.Adapter<ListingItemViewHolder>() {
 
     private val mTag = ListingRecyclerViewAdapter::class.java.simpleName
     private val mListing = ArrayList<Listings>()
@@ -46,7 +49,7 @@ class ListingRecyclerViewAdapter : RecyclerView.Adapter<ListingItemViewHolder>()
     }
 
     override fun onBindViewHolder(holder: ListingItemViewHolder, position: Int) {
-        holder.bind(mListing[position])
+        holder.bind(mListing[position], selectedListListener, callDealerListener)
     }
 
 }
@@ -57,15 +60,19 @@ class ListingItemViewHolder(private val binding: ListListingItemBinding) :
 
     private val mTag = ListingItemViewHolder::class.java.simpleName
 
-    fun bind(listing : Listings) {
-
+    fun bind(
+        listing: Listings,
+        selectedListListener: (Listings) -> Unit,
+        callDealerListener: (String) -> Unit
+    ) {
         Log.d(mTag + "Images :", listing.images.toString())
         Log.d(mTag, listing.images.firstPhoto.large)
         Glide.with(binding.imageViewListingCarImage.context)
             .load(listing.images.firstPhoto.large)
             .into(binding.imageViewListingCarImage)
 
-        val listingTitle = listing.year.toString() + " " +listing.make + " " + listing.model + " " + listing.trim
+        val listingTitle =
+            listing.year.toString() + " " + listing.make + " " + listing.model + " " + listing.trim
         binding.textViewListingCarDetails.text = listingTitle
 
         val listingPrice = "$ " + currencyFormat(listing.currentPrice)
@@ -75,8 +82,11 @@ class ListingItemViewHolder(private val binding: ListListingItemBinding) :
         val listingLocation = listing.dealer.address
         val listingDealer = listing.dealer.phone
 
-        binding.textViewListingCarMileage.text = Utilities.mileageToRSDecimalStack(listingMileage, false)
+        binding.textViewListingCarMileage.text =
+            Utilities.mileageToRSDecimalStack(listingMileage, false)
         binding.textViewListingAddress.text = listingLocation
-       // binding.textViewListingDealer.text = listingDealer
+        binding.textViewListingDealer.setOnClickListener { callDealerListener(listingDealer) }
+
+        binding.cardViewListing.setOnClickListener { selectedListListener(listing) }
     }
 }

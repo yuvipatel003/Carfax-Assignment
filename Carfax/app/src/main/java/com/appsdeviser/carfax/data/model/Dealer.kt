@@ -1,20 +1,19 @@
 package com.appsdeviser.carfax.data.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Dealer(
     val address: String,
-    val backfill: Boolean,
     val carfaxId: String,
-    val cfxMicrositeUrl: String,
     val city: String,
     val dealerAverageRating: Double,
     val dealerInventoryUrl: String,
-    val dealerLeadType: String,
-    val dealerReviewComments: String,
     val dealerReviewCount: Int,
     val dealerReviewDate: String,
     val dealerReviewRating: Int,
     val dealerReviewReviewer: String,
-    val dealerReviewTitle: String,
     val latitude: String,
     val longitude: String,
     val name: String,
@@ -22,4 +21,4 @@ data class Dealer(
     val phone: String,
     val state: String,
     val zip: String
-)
+) : Parcelable

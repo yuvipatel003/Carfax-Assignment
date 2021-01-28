@@ -1,7 +1,6 @@
 package com.appsdeviser.carfax.data.api
 
-import com.appsdeviser.carfax.data.model.CarFax
-import com.appsdeviser.carfax.data.xxx.CarFaxData
+import com.appsdeviser.carfax.data.model.CarFaxData
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
