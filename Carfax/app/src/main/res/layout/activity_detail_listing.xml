@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView_detail_listing_car_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView_detail_listing_car_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:paddingHorizontal="@dimen/padding_large"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageView_detail_listing_car_image" />
+
+            <TextView
+                android:id="@+id/textView_detail_listing_car_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:textSize="@dimen/text_size_large"
+                android:textColor="@color/color_black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/view_divider"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_detail_listing_car_details"
+                android:paddingHorizontal="@dimen/padding_large" />
+
+            <View
+                android:id="@+id/view_divider"
+                android:layout_width="2dp"
+                android:layout_height="25dp"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="@color/cardview_dark_background"
+                app:layout_constraintEnd_toStartOf="@+id/textView_detail_listing_car_mileage"
+                app:layout_constraintStart_toEndOf="@id/textView_detail_listing_car_price"
+                app:layout_constraintTop_toBottomOf="@id/textView_detail_listing_car_details" />
+
+            <TextView
+                android:id="@+id/textView_detail_listing_car_mileage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:textSize="@dimen/text_size_large"
+                android:textColor="@color/color_black"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/view_divider"
+                app:layout_constraintTop_toBottomOf="@id/textView_detail_listing_car_details"
+                android:paddingHorizontal="@dimen/padding_large" />
+
+            <View
+                android:id="@+id/view_divider_horizontal_top"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_margin="8dp"
+                android:background="@color/color_off_black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_detail_listing_car_mileage"
+                android:elevation="2dp" />
+
+
+            <LinearLayout
+                android:id="@+id/constraintLayout_vehicle_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_divider_horizontal_top">
+
+                <TextView
+                    android:id="@+id/tv_title_vehicle_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0"
+                    android:text="Vehicle Info"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/text_size_medium"
+                    android:layout_marginHorizontal="@dimen/margin_large"
+                    android:padding="@dimen/padding_medium"
+                    android:layout_marginBottom="@dimen/margin_xLarge" />
+
+                <!-- Vehicle Location  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/margin_large"
+                    android:paddingVertical="@dimen/padding_small">
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_location_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Location"
+                        android:layout_weight="0.9"
+                        android:textColor="@color/color_off_black"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_location"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.1"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/color_black" />
+                </LinearLayout>
+
+                <!-- Vehicle Exterior color  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/margin_large"
+                    android:paddingVertical="@dimen/padding_small">>
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_exterior_color_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Exterior Color"
+                        android:layout_weight="0.9"
+                        android:textColor="@color/color_off_black"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small" />/>
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_exterior_color"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.1"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/color_black" />
+                </LinearLayout>
+
+                <!-- Vehicle Interior color  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/margin_large"
+                    android:paddingVertical="@dimen/padding_small">>
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_interior_color_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Interior Color"
+                        android:layout_weight="0.9"
+                        android:textColor="@color/color_off_black"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small" />/>
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_interior_color"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.1"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/color_black" />
+                </LinearLayout>
+
+                <!-- Vehicle Drive Type color  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/margin_large"
+                    android:paddingVertical="@dimen/padding_small">>
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_drive_type_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Drive Type"
+                        android:layout_weight="0.9"
+                        android:textColor="@color/color_off_black"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small" />/>
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_drive_type"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.1"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/color_black" />
+                </LinearLayout>
+
+                <!-- Vehicle Transmission color  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/margin_large"
+                    android:paddingVertical="@dimen/padding_small">>
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_transmission_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Transmission"
+                        android:layout_weight="0.9"
+                        android:textColor="@color/color_off_black"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small" />/>
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_transmission"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.1"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/color_black" />
+                </LinearLayout>
+
+
+                <!-- Vehicle Body Style color  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/margin_large"
+                    android:paddingVertical="@dimen/padding_small">>
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_body_style_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Body Style"
+                        android:layout_weight="0.9"
+                        android:textColor="@color/color_off_black"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small" />/>
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_body_style"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.1"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/color_black" />
+                </LinearLayout>
+
+
+                <!-- Vehicle Engine color  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/margin_large"
+                    android:paddingVertical="@dimen/padding_small">>
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_engine_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Engine"
+                        android:layout_weight="0.9"
+                        android:textColor="@color/color_off_black"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small" />/>
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_engine"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.1"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/color_black" />
+                </LinearLayout>
+
+                <!-- Vehicle Fuel color  -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/margin_large"
+                    android:paddingVertical="@dimen/padding_small">>
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_fuel_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Fuel"
+                        android:layout_weight="0.9"
+                        android:textColor="@color/color_off_black"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small" />/>
+
+                    <TextView
+                        android:id="@+id/tv_vehicle_fuel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.1"
+                        android:paddingHorizontal="@dimen/padding_medium"
+                        android:textSize="@dimen/text_size_small"
+                        android:textColor="@color/color_black" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/view_divider_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="8dp"
+                android:background="@color/cardview_dark_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/constraintLayout_vehicle_detail"
+                android:elevation="3dp"
+                android:layout_marginBottom="@dimen/margin_medium" />
+
+            <Button
+                android:id="@+id/btn_call_dealer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:elevation="@null"
+                android:padding="4dp"
+                android:text="CALL DEALER"
+                android:textAlignment="center"
+                android:textColor="@color/color_white"
+                android:background="@color/color_blue"
+                android:textSize="@dimen/text_size_medium"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_divider_horizontal"
+                app:layout_constraintVertical_bias="1.0"
+                android:layout_marginTop="@dimen/margin_medium" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
