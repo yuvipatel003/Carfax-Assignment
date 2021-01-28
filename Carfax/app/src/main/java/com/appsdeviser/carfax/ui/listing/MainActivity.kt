@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
@@ -59,6 +60,7 @@ class MainActivity : AppCompatActivity() {
             selectedListing(selectedListing)
         }, { contactNo: String -> callDealer(contactNo) })
         mBinding.recyclerViewListing.adapter = mAdapter
+        mBinding.progressBarListing.visibility = View.VISIBLE
         displayAllListing()
     }
 
@@ -72,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                 mAdapter.setList(list)
                 mAdapter.notifyDataSetChanged()
             }
+            mBinding.progressBarListing.visibility = View.GONE
 
         })
     }
