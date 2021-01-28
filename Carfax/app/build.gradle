@@ -41,7 +41,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     def lifecycle_version = "2.2.0"
     def arch_version = "2.1.0"
-    def room_version = "2.2.5"
+    def room_version = "2.2.6"
     def coroutine_version = "1.4.1"
     def dagger_version = "2.29.1"
     def retrofit_version = "2.9.0"
@@ -58,7 +58,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // Test
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     testImplementation 'androidx.test.ext:junit:1.1.2'
     testImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     testImplementation "androidx.arch.core:core-testing:$arch_version"

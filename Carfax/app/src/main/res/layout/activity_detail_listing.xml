@@ -4,11 +4,11 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/imageView_detail_listing_car_image"
@@ -141,7 +141,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingHorizontal="@dimen/margin_large"
-                    android:paddingVertical="@dimen/padding_small">>
+                    android:paddingVertical="@dimen/padding_small">
 
                     <TextView
                         android:id="@+id/tv_vehicle_exterior_color_title"
@@ -151,7 +151,7 @@
                         android:layout_weight="0.9"
                         android:textColor="@color/color_off_black"
                         android:paddingHorizontal="@dimen/padding_medium"
-                        android:textSize="@dimen/text_size_small" />/>
+                        android:textSize="@dimen/text_size_small" />
 
                     <TextView
                         android:id="@+id/tv_vehicle_exterior_color"
@@ -169,7 +169,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingHorizontal="@dimen/margin_large"
-                    android:paddingVertical="@dimen/padding_small">>
+                    android:paddingVertical="@dimen/padding_small">
 
                     <TextView
                         android:id="@+id/tv_vehicle_interior_color_title"
@@ -179,7 +179,7 @@
                         android:layout_weight="0.9"
                         android:textColor="@color/color_off_black"
                         android:paddingHorizontal="@dimen/padding_medium"
-                        android:textSize="@dimen/text_size_small" />/>
+                        android:textSize="@dimen/text_size_small" />
 
                     <TextView
                         android:id="@+id/tv_vehicle_interior_color"
@@ -197,7 +197,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingHorizontal="@dimen/margin_large"
-                    android:paddingVertical="@dimen/padding_small">>
+                    android:paddingVertical="@dimen/padding_small">
 
                     <TextView
                         android:id="@+id/tv_vehicle_drive_type_title"
@@ -207,7 +207,7 @@
                         android:layout_weight="0.9"
                         android:textColor="@color/color_off_black"
                         android:paddingHorizontal="@dimen/padding_medium"
-                        android:textSize="@dimen/text_size_small" />/>
+                        android:textSize="@dimen/text_size_small" />
 
                     <TextView
                         android:id="@+id/tv_vehicle_drive_type"
@@ -225,7 +225,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingHorizontal="@dimen/margin_large"
-                    android:paddingVertical="@dimen/padding_small">>
+                    android:paddingVertical="@dimen/padding_small">
 
                     <TextView
                         android:id="@+id/tv_vehicle_transmission_title"
@@ -235,7 +235,7 @@
                         android:layout_weight="0.9"
                         android:textColor="@color/color_off_black"
                         android:paddingHorizontal="@dimen/padding_medium"
-                        android:textSize="@dimen/text_size_small" />/>
+                        android:textSize="@dimen/text_size_small" />
 
                     <TextView
                         android:id="@+id/tv_vehicle_transmission"
@@ -254,7 +254,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingHorizontal="@dimen/margin_large"
-                    android:paddingVertical="@dimen/padding_small">>
+                    android:paddingVertical="@dimen/padding_small">
 
                     <TextView
                         android:id="@+id/tv_vehicle_body_style_title"
@@ -264,7 +264,7 @@
                         android:layout_weight="0.9"
                         android:textColor="@color/color_off_black"
                         android:paddingHorizontal="@dimen/padding_medium"
-                        android:textSize="@dimen/text_size_small" />/>
+                        android:textSize="@dimen/text_size_small" />
 
                     <TextView
                         android:id="@+id/tv_vehicle_body_style"
@@ -283,7 +283,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingHorizontal="@dimen/margin_large"
-                    android:paddingVertical="@dimen/padding_small">>
+                    android:paddingVertical="@dimen/padding_small">
 
                     <TextView
                         android:id="@+id/tv_vehicle_engine_title"
@@ -293,7 +293,7 @@
                         android:layout_weight="0.9"
                         android:textColor="@color/color_off_black"
                         android:paddingHorizontal="@dimen/padding_medium"
-                        android:textSize="@dimen/text_size_small" />/>
+                        android:textSize="@dimen/text_size_small" />
 
                     <TextView
                         android:id="@+id/tv_vehicle_engine"
@@ -311,7 +311,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingHorizontal="@dimen/margin_large"
-                    android:paddingVertical="@dimen/padding_small">>
+                    android:paddingVertical="@dimen/padding_small">
 
                     <TextView
                         android:id="@+id/tv_vehicle_fuel_title"
@@ -321,7 +321,7 @@
                         android:layout_weight="0.9"
                         android:textColor="@color/color_off_black"
                         android:paddingHorizontal="@dimen/padding_medium"
-                        android:textSize="@dimen/text_size_small" />/>
+                        android:textSize="@dimen/text_size_small" />
 
                     <TextView
                         android:id="@+id/tv_vehicle_fuel"
