@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Carfax</string>
+    <string name="str_space">\" \"</string>
+    <string name="str_dollar">$</string>
 </resources>
