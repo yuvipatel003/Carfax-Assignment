@@ -25,11 +25,13 @@ class ListingRecyclerViewAdapter(
      * @param listItems - list of Listings
      */
     fun setList(listItems: List<Listings>) {
+        Log.d(mTag, "setList")
         mListing.clear()
         mListing.addAll(listItems)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListingItemViewHolder {
+        Log.d(mTag, "onCreateViewHolder")
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding: ListListingItemBinding = DataBindingUtil.inflate(
             layoutInflater,
@@ -45,10 +47,12 @@ class ListingRecyclerViewAdapter(
      * @return size
      */
     override fun getItemCount(): Int {
+        Log.d(mTag, "getItemCount")
         return mListing.size
     }
 
     override fun onBindViewHolder(holder: ListingItemViewHolder, position: Int) {
+        Log.d(mTag, "onBindViewHolder")
         holder.bind(mListing[position], selectedListListener, callDealerListener)
     }
 
@@ -67,26 +71,27 @@ class ListingItemViewHolder(private val binding: ListListingItemBinding) :
     ) {
         Log.d(mTag + "Images :", listing.images.toString())
         Log.d(mTag, listing.images.firstPhoto.large)
-        Glide.with(binding.imageViewListingCarImage.context)
-            .load(listing.images.firstPhoto.large)
-            .into(binding.imageViewListingCarImage)
 
         val listingTitle =
-            listing.year.toString() + " " + listing.make + " " + listing.model + " " + listing.trim
-        binding.textViewListingCarDetails.text = listingTitle
-
-        val listingPrice = "$ " + currencyFormat(listing.currentPrice)
-        binding.textViewListingCarPrice.text = listingPrice
-
+            listing.year.toString() + binding.root.resources.getString(R.string.str_space) + listing.make + binding.root.resources.getString(R.string.str_space) + listing.model + binding.root.resources.getString(R.string.str_space) + listing.trim
+        val listingPrice = binding.root.resources.getString(R.string.str_dollar) + currencyFormat(listing.currentPrice)
         val listingMileage = listing.mileage
         val listingLocation = listing.dealer.address
         val listingDealer = listing.dealer.phone
 
-        binding.textViewListingCarMileage.text =
-            Utilities.mileageToRSDecimalStack(listingMileage, false)
-        binding.textViewListingAddress.text = listingLocation
-        binding.textViewListingDealer.setOnClickListener { callDealerListener(listingDealer) }
+        with(binding){
+            Glide.with(imageViewListingCarImage.context)
+                .load(listing.images.firstPhoto.large)
+                .into(imageViewListingCarImage)
 
-        binding.cardViewListing.setOnClickListener { selectedListListener(listing) }
+            textViewListingCarDetails.text = listingTitle
+            textViewListingCarPrice.text = listingPrice
+            textViewListingCarMileage.text =
+                Utilities.mileageToRSDecimalStack(listingMileage, false)
+            textViewListingAddress.text = listingLocation
+            textViewListingDealer.setOnClickListener { callDealerListener(listingDealer) }
+            cardViewListing.setOnClickListener { selectedListListener(listing) }
+        }
+
     }
 }

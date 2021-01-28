@@ -29,42 +29,54 @@ class DetailListingActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_detail_listing)
 
-        setUpDetailListingViewData(listing)
+       listing.run {
+            setUpDetailListingViewData(this)
+        }
 
     }
 
+    /**
+     * Setup listing data for view
+     */
     private fun setUpDetailListingViewData(listing: Listings) {
         Log.d(mTAG + "Listing :", listing.toString())
 
         val listingTitle =
-            listing.year.toString() + " " + listing.make + " " + listing.model + " " + listing.trim
-        val listingPrice = "$" + Utilities.currencyFormat(listing.currentPrice)
+            listing.year.toString() + getString(R.string.str_space) + listing.make + getString(R.string.str_space) + listing.model + getString(R.string.str_space) + listing.trim
+        val listingPrice = getString(R.string.str_dollar) + Utilities.currencyFormat(listing.currentPrice)
         val listingMileage = listing.mileage
         val listingLocation = listing.dealer.address
         val listingDealer = listing.dealer.phone
 
-        Glide.with(binding.imageViewDetailListingCarImage.context)
-            .load(listing.images.firstPhoto.large)
-            .into(binding.imageViewDetailListingCarImage)
-        binding.textViewDetailListingCarDetails.text = listingTitle
-        binding.textViewDetailListingCarPrice.text = listingPrice
-        binding.textViewDetailListingCarMileage.text =
-            Utilities.mileageToRSDecimalStack(listingMileage, false)
-        binding.tvVehicleLocation.text = listingLocation
-        binding.tvVehicleExteriorColor.text = listing.exteriorColor
-        binding.tvVehicleInteriorColor.text = listing.interiorColor
-        binding.tvVehicleDriveType.text = listing.drivetype
-        binding.tvVehicleTransmission.text = listing.transmission
-        binding.tvVehicleBodyStyle.text = listing.bodytype
-        binding.tvVehicleEngine.text = listing.engine
-        binding.tvVehicleFuel.text = listing.fuel
+        with(binding){
 
-        binding.btnCallDealer.setOnClickListener {
-            callDealer(listingDealer)
+            Glide.with(imageViewDetailListingCarImage.context)
+                .load(listing.images.firstPhoto.large)
+                .into(imageViewDetailListingCarImage)
+            textViewDetailListingCarDetails.text = listingTitle
+            textViewDetailListingCarPrice.text = listingPrice
+            textViewDetailListingCarMileage.text = Utilities.mileageToRSDecimalStack(listingMileage, false)
+            tvVehicleLocation.text = listingLocation
+            tvVehicleExteriorColor.text = listing.exteriorColor
+            tvVehicleInteriorColor.text = listing.interiorColor
+            tvVehicleDriveType.text = listing.drivetype
+            tvVehicleTransmission.text = listing.transmission
+            tvVehicleBodyStyle.text = listing.bodytype
+            tvVehicleEngine.text = listing.engine
+            tvVehicleFuel.text = listing.fuel
+
+            binding.btnCallDealer.setOnClickListener {
+                callDealer(listingDealer)
+            }
         }
+
     }
 
 
+    /**
+     * Call Dealer
+     * @param contactNo
+     */
     private fun callDealer(contactNo: String) {
         Log.d(mTAG, "Selected : $contactNo")
 

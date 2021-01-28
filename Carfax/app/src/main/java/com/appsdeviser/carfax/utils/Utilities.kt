@@ -48,7 +48,6 @@ class Utilities {
         /**
          * Checking permission for network call
          */
-
         fun checkPermission(permission: String, context: Context): Boolean {
             return ContextCompat.checkSelfPermission(
                 context,
